@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="http://imgsrc.baidu.com/forum/pic/item/1ee18a385343fbf2fcc004a2bd7eca8067388f85.jpg" type="img/x-ico" />
+    <title></title>
+    <script>
+        (function(){
+            let href = window.location.href.split('.html')[0];
+            if (href.search('index')==-1 && localStorage.getItem('cumt_name') == null){
+                window.location.href = 'https://anniv.atcumt.com/'
+            } 
+        })()
+    </script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://lib.webfont.com/fastjs.min.js"></script>
+    <script type="text/javascript">
+    $webfont.load("body", "beb6f2b5c32c4864b9b3a7093c86e971", "JQjianxingkai");
+    /*$webfont.load("#id1,.class1,h1", "beb6f2b5c32c4864b9b3a7093c86e971", "JQjianxingkai");*/
+    $webfont.draw();
+    // domtoimage.toBlob(node)
+    // .then(function (blob) {
+    //     window.saveAs(blob, 'share.png');
+    // });
+    // }
+</script>
+</head>
+<style>
+    *{margin: 0;padding: 0;}
+    html,body{
+        height: 100%;width: 100%;
+    }
+    body{
+        background: url('https://s2.ax1x.com/2019/05/18/ELxEU1.png') no-repeat;
+        background-position:center;
+    }
+    .bgshare{
+        height: 100%;width: 100%;z-index: -1;
+    }
+    .wrapper{
+        height: 70px;
+        margin: 0 auto;
+        text-align: center;
+        display: inline-block;
+    }
+    .wrapper img{
+        height: 65%;
+    }
+    .name:placeholder{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color:#f15555;
+    }
+    #dear{
+        width: 35%;height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 26px;
+        color: #335489;
+    }
+    #become{
+        width: 35%;height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 26px;
+        color: #335489;
+    }
+    #bless{
+        line-height: 30px;
+        height: 30px;
+        font-size: 26px;
+        color: #335489;
+        text-align: justify;
+        transform: translateY(-8px);
+    }
+    #bless::after{
+        content: '.';
+        width: 100%;
+        height: 0;
+        display: inline-block;
+        visibility: hidden;
+    }
+    #border{
+        text-align: center;
+        display: inline-block;
+        position: relative;
+        top: 38%;left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    #rank{
+        color:#335489; 
+        font-size: 20px; 
+        text-align:justify;
+        height: 66px;
+        transform: translateY(-16px);
+    }
+    #rank::after{
+        content:'.';
+        width: 100%;height: 0;
+        visibility: hidden;
+        display: inline-block;
+    }
+    @media screen and (min-width: 601px){
+        #img_share{
+            float: right;
+            height: 20px;
+            margin: 10px;            
+            padding: 10px;
+            border: 2px solid #6e6d6d;
+            border-radius: 20px;
+            opacity: 0;
+        }
+    }
+    @media screen and (max-width: 600px){
+        body{
+
+            background: url('https://s2.ax1x.com/2019/05/18/ELxEU1.png');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
+        .bgshare{
+            height: 100%;width: 100%;z-index: -1;
+        }
+        .wrapper{
+            height: 70px;width: 80%;
+            margin: 0 auto;
+            display: inline-block;
+            text-align: center;
+        }
+        .wrapper img{
+            height: 65%;
+            transform: translate(29%,28%);
+            margin: -3px;
+        }
+        .name{
+            color:#f15555;
+        }
+        #dear{
+            width: 80%;
+            text-align: left;
+            line-height: 30px;
+            font-size: 18px;
+            color: #335489;
+        }
+        #become{
+            width:50%;
+            text-align: left;
+            line-height: 30px;
+            font-size: 18px;
+            color: #335489;
+        }
+        #bless{
+            display: block;
+            width: 100%;
+            text-align: justify;
+            line-height: 30px;
+            font-size: 18px;
+            color: #335489;
+            transform: translateY(-26px);
+        }
+        #img_share{
+            float: right;
+            height: 20px;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #6e6d6d;
+            border-radius: 20px;
+        }
+        .eleImg{
+            z-index: 99;
+            margin: 0 auto;
+        }
+        #qrcode {
+            position: absolute;
+            bottom: -50%;right: -10%;
+            margin: 0px;
+            padding: .5em;
+            text-align: center;
+        }
+    }
+    
+</style>
+<body>
+    <div id="border">
+        <div class="title"><img style="width:50%; " src="https://s2.ax1x.com/2019/05/17/ELTXAU.png"></div>
+        <div id="dear">亲爱的<span class="name"></span> <span id="identity">同学</span> </div>
+        <div id="become">恭喜你成为</div>
+        <div id="rank">第<span class="wrapper"></span>位</div>
+        <div id="bless">为矿大110周年校庆送上祝福的人</div>
+        <div style="color:#335489; margin-top:0.2em;transform: translateY(-20px);" onclick = "takeShot()">( 点击转发,为矿大祝福 )</div>
+        <div id="qrcode"></div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rasterizehtml/1.3.0/rasterizeHTML.allinone.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script> 
+</body>
+<script>
+    window.num = 0; 
+    let iden = window.location.href.split('&')[1].split('=')[1];
+    if(!!window.location.href.split('&')[1].split('=')[1]){
+        switch(iden){
+            case 'stu':
+            $('#identity').text('同学');
+            break
+            case 'tec':
+            $('#identity').text('老师')
+            break
+            case 'mate':
+            $('#identity').text('校友')
+            break
+            case 'oth':
+            $('#identity').text('')
+        }
+    }
+    //本地数据
+    $('.name').text(localStorage.getItem('cumt_name'))
+    $(document).ready(function(){
+        if(localStorage.getItem('num') == null){
+            $.ajax({
+                type: 'GET',
+                url: 'https://homeapi.atcumt.com/gainnum',
+                success:function(data){
+                    console.log('data');
+                }
+            });
+            $.ajax({
+                type:'GET',
+                url:'https://homeapi.atcumt.com/num',
+                success:function(data){
+                    localStorage.setItem('num',data.num + 11327);
+                    window.num = localStorage.getItem('num');
+                    window.num = window.num + '';
+                    console.log(window.num);
+                    let fragment = document.createDocumentFragment();
+                    let img = [];
+                    let number_img = num.split('');
+                    number_img.forEach(t => {
+                        let ele = document.createElement('img');
+                        ele.src = 'num/'+t+'.png';
+                        fragment.appendChild(ele);
+                    })
+                    $('.wrapper').append(fragment);
+                },
+                error:function(){
+                	alert('请检查网络');
+                }
+            });
+        }else{
+            let local_num = localStorage.getItem('num');
+            local_num = local_num+'';
+            let fragment = document.createDocumentFragment();
+                    let img = [];
+                    let number_img = local_num.split('');
+                    number_img.forEach(t => {
+                        let ele = document.createElement('img');
+                        ele.src = 'num/'+t+'.png';
+                        fragment.appendChild(ele);
+                    })
+                    $('.wrapper').append(fragment);
+        }
+    });
+    // 动态改变页面标题    
+    $('title').text(localStorage.getItem('cumt_name') + '是第'+localStorage.getItem('num')+'个为矿大送上祝福的人！');
+
+    // 生成二维码
+    $('#qrcode').qrcode({
+        render: "canvas",
+        width: 60,
+        height: 60,
+        foreground: "#d61d4e",
+        background: "#FFF",
+        text: "https://m.rrxiu.me/?v=hnca23&vt=2"
+    });
+
+    function takeShot() {
+
+        alert('截屏或点击浏览器右上角，转发为矿大送上祝福！');
+       
+    }
+
+    
+</script>
+</html>

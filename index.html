@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>为矿大110周年祝福</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        (function(){
+            let href = window.location.href.split('.html')[0].split('m/')[1];
+            if(href == 'share'){
+                window.location.href = 'https://anniv.atcumt.com/'
+            }
+        })()
+    </script>
+    <script type="text/javascript" src="https://lib.webfont.com/fastjs.min.js"></script>
+    <script type="text/javascript">
+    $webfont.load("body", "beb6f2b5c32c4864b9b3a7093c86e971", "JQjianxingkai");
+    /*$webfont.load("#id1,.class1,h1", "beb6f2b5c32c4864b9b3a7093c86e971", "JQjianxingkai");*/
+    $webfont.draw();
+    </script>
+</head>
+<style>
+    *{ margin: 0;padding: 0;list-style: none;text-decoration: none;box-sizing: border-box;}
+    html,body{
+        width: 100%;
+        height: 100%;
+        min-height: 640px;
+        position: relative;
+
+    }
+    body{
+        background: url('https://s2.ax1x.com/2019/05/18/EOGTu8.png') no-repeat;
+        background-position: 50% 8%;
+
+    }
+    form{
+        margin: 0 auto;
+        position: relative;top: 50%;left: 50%;transform: translate(-50%,-50%);
+    }
+
+    .bgimg{
+        /*背景图片*/
+        position: absolute;
+        top: 0;left: 0;z-index: -1;
+        height: 100%;width: 100%;
+        
+    }
+    .inpt{
+        background: url('img/input.png');
+        background-size: 100% 100%;
+        height: 55px;width: 240px;
+        margin: 0 auto;
+        text-align:center;
+    }
+    .content::placeholder{
+        color: #fff;
+        font-weight: 800;
+        line-height: 80px;
+        font-size: 30px;
+    }
+    .inpt>input{
+        height: 50px;width: 126px;
+        margin-top: 7px;
+        text-align: center;
+        background-color: transparent;
+        border: none;outline: none;
+        color: #fff;
+        font-weight: 800;
+        font-size: 20px;
+    }
+    .inpt:nth-child(2){
+        /*设置间距*/
+        margin: 18px auto 18px auto;
+        /*与第三个input互换*/
+
+    }
+    .menu{
+        color: rgb(226, 137, 137);
+        text-align: center;
+        padding:10px;
+    }
+    .menu input{
+        margin: 5px;
+    }
+    .btn{
+        background: url('https://s2.ax1x.com/2019/05/14/EoGbxH.png');
+        background-size: 100% 100%;
+        width: 100%;height: 120%;
+        border: none;
+        outline: none;
+    }
+    .wish{
+        color: rgb(226, 96, 102);
+        text-align: center;
+        margin-top: 2em;
+        font-weight: 1200;
+        font-size: 20px;
+    }
+    @media screen and (max-width: 500px){
+        body{
+            background: url('https://s2.ax1x.com/2019/05/18/EOGTu8.png');
+            background-size: 100% 100%;
+        }
+        form{
+            margin: 0 auto;
+            position: relative;top: 50%;left: 50%;transform: translate(-50%,-50%);
+        }
+        .bgimg{
+            /*背景图片*/
+            position: absolute;
+            top: 0;left: 0;z-index: -1;
+            height: 100%;width: 100%;
+        }
+        .inpt{
+            background: url('img/input.png');
+            background-size: 100% 100%;
+            height: 40px;width: 180px;
+            margin: 0 auto;
+            text-align:center;
+        }
+        .content::placeholder{
+            color: #fff;
+            font-weight: 800;
+            font-size: 20px;
+
+        }
+        .inpt>input{
+            height: 30px;width: 126px;
+            margin-top: 7px;
+            text-align: center;
+            background-color: transparent;
+            border: none;outline: none;
+            color: #fff;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        .inpt:nth-child(2){
+            /*设置间距*/
+            margin: 18px auto 18px auto;
+            /*与第三个input互换*/
+
+        }
+        .menu{
+            /*下拉菜单*/
+            color: rgb(226, 137, 137);
+            
+        }
+        .btn{
+            background: url('https://s2.ax1x.com/2019/05/14/EoGbxH.png');
+            background-size: 100% 100%;
+            width: 100%;height: 120%;
+            border: none;
+            outline: none;
+        }
+    }
+</style>
+<body> 
+    <form action="share.html">
+        <div class="name inpt">
+            <input type="text" name="name" class="content" placeholder="姓名" required>
+        </div>
+        <div class="menu">
+            <input value="stu" name='iden' checked type="radio">学生
+            <input value='tec' name='iden'  type="radio">教职工
+            <input type="radio" name="iden" value="mate">校友
+            <input value="oth" name='iden' type="radio">其他
+        </div>
+        <div class="inpt">
+            <button class="btn"></button>
+        </div>
+        <div class="wish">已有<span id="num"></span>人为矿大祝福</div>
+    </form>
+</body>
+<script>
+    $.ajax({
+        type:'GET',
+        url:'https://homeapi.atcumt.com/num',
+        success:function(data){
+            $('#num').text(data.num+11327)
+        }
+    })
+    $('.btn').click(function(){
+        if(localStorage.getItem('cumt_name')==null){
+            localStorage.setItem('cumt_name',$('.content').val())
+            localStorage.setItem('job',$('.text').text())  
+        }
+        if($('.content') == ''){
+            alert('请输入您的姓名')
+            return false
+        }
+        if($('.text') == '选择你的职业'){
+            alert('您是老师还是学生呢 亲！')
+            return false
+        }else{
+
+        }
+    })
+    if (localStorage.getItem('cumt_name')){
+        $('title').text('你' + '是第'+localStorage.getItem('num')+'个为矿大祝福的人！');
+    }else{
+        console.log('new people');
+    }
+    
+
+</script>
+</html>
